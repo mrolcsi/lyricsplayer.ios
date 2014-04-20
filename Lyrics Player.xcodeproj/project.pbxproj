@@ -28,6 +28,7 @@
 		9524E07B18F317630005F308 /* macklemore-thriftshop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9524E07818F317630005F308 /* macklemore-thriftshop.jpg */; };
 		9524E07C18F317630005F308 /* zedd-clarity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9524E07918F317630005F308 /* zedd-clarity.jpg */; };
 		9524E07D18F317630005F308 /* coldplay-vivalavida.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9524E07A18F317630005F308 /* coldplay-vivalavida.jpg */; };
+		952F2E211904436000442B37 /* daftpunk-discovery.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E201904436000442B37 /* daftpunk-discovery.jpg */; };
 		95A21CA719041B4600AB2191 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A21CA619041B4600AB2191 /* PlayerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		9524E07818F317630005F308 /* macklemore-thriftshop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "macklemore-thriftshop.jpg"; sourceTree = "<group>"; };
 		9524E07918F317630005F308 /* zedd-clarity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "zedd-clarity.jpg"; sourceTree = "<group>"; };
 		9524E07A18F317630005F308 /* coldplay-vivalavida.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "coldplay-vivalavida.jpg"; sourceTree = "<group>"; };
+		952F2E201904436000442B37 /* daftpunk-discovery.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "daftpunk-discovery.jpg"; sourceTree = "<group>"; };
 		95A21CA519041B4600AB2191 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = Controllers/PlayerViewController.h; sourceTree = "<group>"; };
 		95A21CA619041B4600AB2191 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = Controllers/PlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +206,7 @@
 		9524E07718F317580005F308 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				952F2E201904436000442B37 /* daftpunk-discovery.jpg */,
 				9524E07818F317630005F308 /* macklemore-thriftshop.jpg */,
 				9524E07918F317630005F308 /* zedd-clarity.jpg */,
 				9524E07A18F317630005F308 /* coldplay-vivalavida.jpg */,
@@ -292,6 +295,7 @@
 				9524E07B18F317630005F308 /* macklemore-thriftshop.jpg in Resources */,
 				9524E07618F3149C0005F308 /* Main.storyboard in Resources */,
 				9524E07C18F317630005F308 /* zedd-clarity.jpg in Resources */,
+				952F2E211904436000442B37 /* daftpunk-discovery.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

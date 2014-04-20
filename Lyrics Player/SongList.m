@@ -19,19 +19,24 @@
                                                  Title:@"Viva La Vida"
                                                  Album:@"Viva La Vida or Death And All His Friends"
                                             CoverImage:[UIImage imageNamed:@"coldplay-vivalavida.jpg"]
-                                DurationInMilliseconds:244000];
+                                DurationInMilliseconds:244218];
         Song *thriftshop = [[Song alloc]initWithArtist:@"Macklemore feat. Ryan Lewis"
                                                  Title:@"Thrift Shop"
                                                  Album:@"The Heist"
                                             CoverImage:[UIImage imageNamed:@"macklemore-thriftshop.jpg"]
-                                DurationInMilliseconds:234000];
+                                DurationInMilliseconds:234448];
         Song *clarity = [[Song alloc]initWithArtist:@"Zedd feat. Foxes"
                                               Title:@"Clarity (Album Version)"
                                               Album:@"Clarity"
                                          CoverImage:[UIImage imageNamed:@"zedd-clarity.jpg"]
-                             DurationInMilliseconds:271000];
+                             DurationInMilliseconds:271426];
+        Song *digitalLove = [[Song alloc]initWithArtist:@"Daft Punk"
+                                                  Title:@"Digital Love"
+                                                  Album:@"Discovery"
+                                             CoverImage:[UIImage imageNamed:@"daftpunk-discovery.jpg"]
+                                  DurationInMilliseconds:300277];
         
-        _songs = [[NSMutableArray alloc] initWithObjects:vivalavida,thriftshop,clarity, nil];
+        _songs = [[NSMutableArray alloc] initWithObjects:vivalavida,thriftshop,clarity,digitalLove, nil];
     }
     return self;
 }
