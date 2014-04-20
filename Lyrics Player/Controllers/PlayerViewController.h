@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Song.h"
+#import "SongList.h"
 
 @interface PlayerViewController : UIViewController
 
-@property (strong, nonatomic) Song *song;
+@property (strong, nonatomic) SongList *songlist;
+@property (strong, nonatomic) Song *currentSong;
 
 @end

@@ -12,8 +12,7 @@
 
 -(id)initWithArtist:(NSString *)artist Title:(NSString *)title Album:(NSString *)album CoverImage:(UIImage *)cover DurationInMilliseconds:(NSInteger)duration{
     
-    self = [super init];
-    if (self){
+    if (self = [super init]){
         _artist = artist;
         _title = title;
         _album = album;
@@ -42,12 +41,14 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1000];
     
     __weak Song *this = self;
-    
+
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
                                NSString *responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                               //TODO: parse lyrics n stuff   
+                               //TODO: parse lyrics n stuff
+                               
+                               this.lyrics = [[Lyrics alloc] initFromHTML:responseString];
                                
                                if(successHandler)
                                {

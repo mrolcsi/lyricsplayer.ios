@@ -39,13 +39,13 @@
 {
     [super viewDidLoad];
     
-    self.lblTitle.text = _song.title;
-    self.lblArtistAlbum.text = [NSString stringWithFormat:@"%@ - %@",_song.artist, _song.album];
-    self.imgCover.image = _song.cover;
-    self.lblRemainingTime.text = [NSString stringWithFormat:@"-%@",[_song getDurationString]];
+    self.lblTitle.text = _currentSong.title;
+    self.lblArtistAlbum.text = [NSString stringWithFormat:@"%@ - %@",_currentSong.artist, _currentSong.album];
+    self.imgCover.image = _currentSong.cover;
+    self.lblRemainingTime.text = [NSString stringWithFormat:@"-%@",[_currentSong getDurationString]];
     
     __weak PlayerViewController *this = self;
-    [self.song fetchLyricsOnSuccess:^(NSString *lyrics) {
+    [self.currentSong fetchLyricsOnSuccess:^(NSString *lyrics) {
         this.lblLyrics.text=lyrics;
     } OnFailure:^(NSError *error) {
         this.lblLyrics.text=@"No lyrics found.";

@@ -16,11 +16,11 @@
     self = [super init];
     if (self){
         Song *vivalavida = [[Song alloc]initWithArtist:@"Coldplay"
-                                                 Title:@"Viva La Vida"
-                                                 Album:@"Viva La Vida or Death And All His Friends"
+                                                 Title:@"Viva la Vida"
+                                                 Album:@"Viva la Vida or Death And All His Friends"
                                             CoverImage:[UIImage imageNamed:@"coldplay-vivalavida.jpg"]
                                 DurationInMilliseconds:244218];
-        Song *thriftshop = [[Song alloc]initWithArtist:@"Macklemore feat. Ryan Lewis"
+        Song *thriftshop = [[Song alloc]initWithArtist:@"Macklemore & Ryan Lewis"
                                                  Title:@"Thrift Shop"
                                                  Album:@"The Heist"
                                             CoverImage:[UIImage imageNamed:@"macklemore-thriftshop.jpg"]

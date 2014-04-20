@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Lyrics.h"
 
 @interface Song : NSObject
 
@@ -15,7 +16,8 @@
 @property (strong, nonatomic) NSString *album;
 @property (strong, nonatomic) UIImage *cover;
 @property (nonatomic) NSInteger duration;
-@property (strong, nonatomic) NSString* lyrics;
+@property (strong, nonatomic) NSString* rawLyrics;
+@property (strong, nonatomic) Lyrics* lyrics;
 
 -(id)initWithArtist:(NSString *)artist Title:(NSString *)title Album:(NSString *)album CoverImage:(UIImage *)cover DurationInMilliseconds:(NSInteger)duration;
 -(NSString *)getDurationString;

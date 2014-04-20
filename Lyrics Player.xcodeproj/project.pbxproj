@@ -34,6 +34,7 @@
 		952F2E3919044F3F00442B37 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E3519044F3F00442B37 /* play.png */; };
 		952F2E3A19044F3F00442B37 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E3619044F3F00442B37 /* prev.png */; };
 		952F2E3E190457CA00442B37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E3D190457CA00442B37 /* Images.xcassets */; };
+		952F2E411904655200442B37 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F2E401904655200442B37 /* Lyrics.m */; };
 		95A21CA719041B4600AB2191 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A21CA619041B4600AB2191 /* PlayerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,8 @@
 		952F2E3519044F3F00442B37 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Images/play.png; sourceTree = "<group>"; };
 		952F2E3619044F3F00442B37 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prev.png; path = Images/prev.png; sourceTree = "<group>"; };
 		952F2E3D190457CA00442B37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		952F2E3F1904655200442B37 /* Lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lyrics.h; path = Models/Lyrics.h; sourceTree = "<group>"; };
+		952F2E401904655200442B37 /* Lyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lyrics.m; path = Models/Lyrics.m; sourceTree = "<group>"; };
 		95A21CA519041B4600AB2191 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = Controllers/PlayerViewController.h; sourceTree = "<group>"; };
 		95A21CA619041B4600AB2191 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = Controllers/PlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +213,8 @@
 				9524E06818F30CEE0005F308 /* SongList.m */,
 				9524E06A18F30CFB0005F308 /* Song.h */,
 				9524E06B18F30CFB0005F308 /* Song.m */,
+				952F2E3F1904655200442B37 /* Lyrics.h */,
+				952F2E401904655200442B37 /* Lyrics.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				95211D9518D64DD800C41A5F /* AppDelegate.m in Sources */,
 				95A21CA719041B4600AB2191 /* PlayerViewController.m in Sources */,
 				95211D9118D64DD800C41A5F /* main.m in Sources */,
+				952F2E411904655200442B37 /* Lyrics.m in Sources */,
 				9524E06518F30C6E0005F308 /* SongListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

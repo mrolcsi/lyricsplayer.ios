@@ -115,7 +115,8 @@
     if ([segue.identifier isEqualToString:@"songs2Player"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PlayerViewController *destViewController = segue.destinationViewController;
-        destViewController.song = [_songlist.songs objectAtIndex:indexPath.row];
+        destViewController.currentSong = [_songlist.songs objectAtIndex:indexPath.row];
+        destViewController.songlist = _songlist;
     }}
 
 
