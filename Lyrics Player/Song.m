@@ -30,4 +30,37 @@
     return [NSString stringWithFormat:@"%ld:%d", mins, seconds];
 }
 
+-(void)fetchLyricsOnSuccess:(void(^)(NSString* lyrics))successHandler OnFailure:(void(^)(NSError* error))failureHandler{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    //prepare URL
+    NSString *urlString = [NSString stringWithFormat:@"http://mrolcsi.orgfree.com/lrc/get.php?artist=%@&title=%@", _artist,_title];
+    NSString *escapedUrlString = [urlString stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+    NSURL *url = [NSURL URLWithString:escapedUrlString];
+    
+    //prepare HTTP Request
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1000];
+    
+    __weak Song *this = self;
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+                               NSString *responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                               //TODO: parse lyrics n stuff   
+                               
+                               if(successHandler)
+                               {
+                                   successHandler(responseString);
+                               }
+                               else
+                               {
+                                   failureHandler(error);
+                               }
+                               
+                               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                               
+                           }];
+}
+
 @end

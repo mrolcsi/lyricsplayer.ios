@@ -37,7 +37,7 @@
 -(void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
     
     if (mediaItemCollection){
-        NSLog(@"Number of songs: %d",mediaItemCollection.count);
+        NSLog(@"Number of songs: %lu", ((unsigned long) mediaItemCollection.count));
         
         for(MPMediaItem *media in mediaItemCollection.items){
             NSLog(@"Song: %@ - %@",[media valueForProperty:MPMediaItemPropertyArtist],[media valueForProperty:MPMediaItemPropertyTitle]);

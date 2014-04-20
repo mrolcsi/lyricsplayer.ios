@@ -49,7 +49,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UITAbleViewDelegate
+#pragma mark - UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;
@@ -115,7 +115,7 @@
     if ([segue.identifier isEqualToString:@"songs2Player"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PlayerViewController *destViewController = segue.destinationViewController;
-        destViewController.song = [self.songlist.songs objectAtIndex:indexPath.row];
+        destViewController.song = [_songlist.songs objectAtIndex:indexPath.row];
     }}
 
 

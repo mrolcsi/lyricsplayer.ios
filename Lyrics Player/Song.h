@@ -15,8 +15,9 @@
 @property (strong, nonatomic) NSString *album;
 @property (strong, nonatomic) UIImage *cover;
 @property (nonatomic) NSInteger duration;
+@property (strong, nonatomic) NSString* lyrics;
 
 -(id)initWithArtist:(NSString *)artist Title:(NSString *)title Album:(NSString *)album CoverImage:(UIImage *)cover DurationInMilliseconds:(NSInteger)duration;
 -(NSString *)getDurationString;
-
+-(void)fetchLyricsOnSuccess:(void(^)(NSString* lyrics))successHandler OnFailure:(void(^)(NSError* error))failureHandler;
 @end

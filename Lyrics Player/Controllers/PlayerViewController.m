@@ -7,9 +7,20 @@
 //
 
 #import "PlayerViewController.h"
+#import "Song.h"
 
 @interface PlayerViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *tvLyrics;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblLyrics;
+@property (weak, nonatomic) IBOutlet UIImageView *imgCover;
+@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lblArtistAlbum;
+@property (weak, nonatomic) IBOutlet UILabel *lblElapsedTime;
+@property (weak, nonatomic) IBOutlet UILabel *lblRemainingTime;
+@property (weak, nonatomic) IBOutlet UIButton *btnPrev;
+@property (weak, nonatomic) IBOutlet UIButton *btnNext;
+@property (weak, nonatomic) IBOutlet UIButton *btnPlayPause;
+@property (weak, nonatomic) IBOutlet UISlider *sldSeekBar;
 
 @end
 
@@ -28,7 +39,18 @@
 {
     [super viewDidLoad];
     
-    self.tvLyrics.text = [NSString stringWithFormat:@"%@ - %@", self.song.artist, self.song.title];
+    self.lblTitle.text = _song.title;
+    self.lblArtistAlbum.text = [NSString stringWithFormat:@"%@ - %@",_song.artist, _song.album];
+    self.imgCover.image = _song.cover;
+    self.lblRemainingTime.text = [NSString stringWithFormat:@"-%@",[_song getDurationString]];
+    
+    __weak PlayerViewController *this = self;
+    [self.song fetchLyricsOnSuccess:^(NSString *lyrics) {
+        this.lblLyrics.text=lyrics;
+    } OnFailure:^(NSError *error) {
+        this.lblLyrics.text=@"No lyrics found.";
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
