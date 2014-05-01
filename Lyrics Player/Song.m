@@ -178,7 +178,7 @@
 
 -(void)play{
     [self stop];
-    _stream = BASS_StreamCreateFile(false, (__bridge const void *)(_filename), 0, 0, BASS_STREAM_AUTOFREE|BASS_STREAM_PRESCAN);
+    _stream = BASS_StreamCreateFile(false, [_filename UTF8String], 0, 0, BASS_STREAM_AUTOFREE|BASS_STREAM_PRESCAN);
     //BASS_ChannelSetSync(...onSongEnd...)
     //buildLyricsCallbacks
     
