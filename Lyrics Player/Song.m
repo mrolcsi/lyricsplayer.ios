@@ -96,20 +96,19 @@
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-                               NSString *responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                               //TODO: parse lyrics n stuff
                                
-                               this.lyrics = [[Lyrics alloc] initFromLRC:responseString];
+                               NSInteger statuscode = [((NSHTTPURLResponse*)response) statusCode];
                                
-                               if(successHandler)
-                               {
+                               if (statuscode == 200) {
+                                   NSString *responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                                   //TODO: parse lyrics n stuff
+                                   
+                                   this.lyrics = [[Lyrics alloc] initFromLRC:responseString];
                                    successHandler(responseString);
+                               } else if (statuscode == 404) {
+                                   failureHandler(nil);
                                }
-                               else
-                               {
-                                   failureHandler(error);
-                               }
-                               
+
                                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                
                            }];

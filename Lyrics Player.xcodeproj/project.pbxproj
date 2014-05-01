@@ -12,7 +12,6 @@
 		951599A21912747100E0670E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951599A11912747100E0670E /* CFNetwork.framework */; };
 		951599A41912747D00E0670E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951599A31912747D00E0670E /* Accelerate.framework */; };
 		951599A6191274AA00E0670E /* libbass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 951599A5191274AA00E0670E /* libbass.a */; };
-		951599AB1912813F00E0670E /* Coldplay - Viva la Vida.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 951599AA1912813F00E0670E /* Coldplay - Viva la Vida.mp3 */; };
 		95211D8518D64DD800C41A5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95211D8418D64DD800C41A5F /* Foundation.framework */; };
 		95211D8718D64DD800C41A5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95211D8618D64DD800C41A5F /* CoreGraphics.framework */; };
 		95211D8918D64DD800C41A5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95211D8818D64DD800C41A5F /* UIKit.framework */; };
@@ -30,12 +29,12 @@
 		9524E06918F30CEE0005F308 /* SongList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9524E06818F30CEE0005F308 /* SongList.m */; };
 		9524E06C18F30CFB0005F308 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 9524E06B18F30CFB0005F308 /* Song.m */; };
 		9524E07618F3149C0005F308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95211D9618D64DDA00C41A5F /* Main.storyboard */; };
-		9524E07B18F317630005F308 /* macklemore-thriftshop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9524E07818F317630005F308 /* macklemore-thriftshop.jpg */; };
-		9524E07C18F317630005F308 /* zedd-clarity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9524E07918F317630005F308 /* zedd-clarity.jpg */; };
-		9524E07D18F317630005F308 /* coldplay-vivalavida.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9524E07A18F317630005F308 /* coldplay-vivalavida.jpg */; };
-		952F2E211904436000442B37 /* daftpunk-discovery.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E201904436000442B37 /* daftpunk-discovery.jpg */; };
 		952F2E3E190457CA00442B37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E3D190457CA00442B37 /* Images.xcassets */; };
 		952F2E411904655200442B37 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F2E401904655200442B37 /* Lyrics.m */; };
+		957965411912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */; };
+		9579654B1912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */; };
+		9579654C1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */; };
+		9579654E1912BDF600C6DA4B /* Bastille - Pompeii.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9579654D1912BDF600C6DA4B /* Bastille - Pompeii.mp3 */; };
 		95A21CA719041B4600AB2191 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A21CA619041B4600AB2191 /* PlayerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +55,6 @@
 		951599A31912747D00E0670E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		951599A5191274AA00E0670E /* libbass.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbass.a; path = "Lyrics Player/bass24-ios/libbass.a"; sourceTree = "<group>"; };
 		951599A8191276FB00E0670E /* bass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bass.h; path = "bass24-ios/bass.h"; sourceTree = "<group>"; };
-		951599AA1912813F00E0670E /* Coldplay - Viva la Vida.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Coldplay - Viva la Vida.mp3"; sourceTree = "<group>"; };
 		95211D8118D64DD800C41A5F /* Lyrics Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lyrics Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95211D8418D64DD800C41A5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		95211D8618D64DD800C41A5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,13 +82,13 @@
 		9524E06818F30CEE0005F308 /* SongList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongList.m; sourceTree = "<group>"; };
 		9524E06A18F30CFB0005F308 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		9524E06B18F30CFB0005F308 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
-		9524E07818F317630005F308 /* macklemore-thriftshop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "macklemore-thriftshop.jpg"; sourceTree = "<group>"; };
-		9524E07918F317630005F308 /* zedd-clarity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "zedd-clarity.jpg"; sourceTree = "<group>"; };
-		9524E07A18F317630005F308 /* coldplay-vivalavida.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "coldplay-vivalavida.jpg"; sourceTree = "<group>"; };
-		952F2E201904436000442B37 /* daftpunk-discovery.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "daftpunk-discovery.jpg"; sourceTree = "<group>"; };
 		952F2E3D190457CA00442B37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		952F2E3F1904655200442B37 /* Lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lyrics.h; path = Models/Lyrics.h; sourceTree = "<group>"; };
 		952F2E401904655200442B37 /* Lyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lyrics.m; path = Models/Lyrics.m; sourceTree = "<group>"; };
+		957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Coldplay - Viva la Vida.mp3"; path = "Songs/Coldplay - Viva la Vida.mp3"; sourceTree = "<group>"; };
+		957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Macklemore & Ryan Lewis - Thrift Shop.mp3"; path = "Songs/Macklemore & Ryan Lewis - Thrift Shop.mp3"; sourceTree = "<group>"; };
+		9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Zedd feat. Foxes - Clarity.mp3"; path = "Songs/Zedd feat. Foxes - Clarity.mp3"; sourceTree = "<group>"; };
+		9579654D1912BDF600C6DA4B /* Bastille - Pompeii.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bastille - Pompeii.mp3"; path = "Songs/Bastille - Pompeii.mp3"; sourceTree = "<group>"; };
 		95A21CA519041B4600AB2191 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = Controllers/PlayerViewController.h; sourceTree = "<group>"; };
 		95A21CA619041B4600AB2191 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = Controllers/PlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +133,10 @@
 		951599A91912805300E0670E /* Songs */ = {
 			isa = PBXGroup;
 			children = (
-				951599AA1912813F00E0670E /* Coldplay - Viva la Vida.mp3 */,
+				9579654D1912BDF600C6DA4B /* Bastille - Pompeii.mp3 */,
+				957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */,
+				9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */,
+				957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */,
 			);
 			name = Songs;
 			sourceTree = "<group>";
@@ -181,7 +182,6 @@
 			children = (
 				951599A91912805300E0670E /* Songs */,
 				951599A7191276E500E0670E /* BASS */,
-				9524E07718F317580005F308 /* Images */,
 				9524E06618F30CC00005F308 /* Models */,
 				9524E05618F3024B0005F308 /* Controllers */,
 				95211D9318D64DD800C41A5F /* AppDelegate.h */,
@@ -248,25 +248,6 @@
 				952F2E401904655200442B37 /* Lyrics.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		9524E07718F317580005F308 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				952F2E2A19044E2C00442B37 /* Covers */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		952F2E2A19044E2C00442B37 /* Covers */ = {
-			isa = PBXGroup;
-			children = (
-				952F2E201904436000442B37 /* daftpunk-discovery.jpg */,
-				9524E07818F317630005F308 /* macklemore-thriftshop.jpg */,
-				9524E07918F317630005F308 /* zedd-clarity.jpg */,
-				9524E07A18F317630005F308 /* coldplay-vivalavida.jpg */,
-			);
-			name = Covers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,14 +326,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9579654B1912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 in Resources */,
 				9524E07618F3149C0005F308 /* Main.storyboard in Resources */,
-				9524E07D18F317630005F308 /* coldplay-vivalavida.jpg in Resources */,
+				957965411912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 in Resources */,
+				9579654E1912BDF600C6DA4B /* Bastille - Pompeii.mp3 in Resources */,
+				9579654C1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 in Resources */,
 				952F2E3E190457CA00442B37 /* Images.xcassets in Resources */,
-				951599AB1912813F00E0670E /* Coldplay - Viva la Vida.mp3 in Resources */,
 				95211D8F18D64DD800C41A5F /* InfoPlist.strings in Resources */,
-				9524E07B18F317630005F308 /* macklemore-thriftshop.jpg in Resources */,
-				9524E07C18F317630005F308 /* zedd-clarity.jpg in Resources */,
-				952F2E211904436000442B37 /* daftpunk-discovery.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
