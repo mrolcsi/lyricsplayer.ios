@@ -8,6 +8,7 @@
 
 #import "Song.h"
 #import "bass.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface Song ()
 
@@ -34,6 +35,31 @@
         _filename = file;
         self.stream = BASS_StreamCreateFile(false, [file UTF8String], 0, 0, BASS_STREAM_PRESCAN|BASS_STREAM_AUTOFREE);
         NSLog(@"BASS_StreamCreateFile: %@, %d",file,BASS_ErrorGetCode());
+        
+        //extract metadata
+        NSURL *url = [NSURL fileURLWithPath:file];
+        AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+        NSArray *metadata = [asset commonMetadata];
+        for (AVMetadataItem *item in metadata){
+            if ([[item commonKey] isEqual:@"title"]) {
+                _title = [item stringValue];
+            } else if ([[item commonKey] isEqual:@"artist"]){
+                _artist = [item stringValue];
+            } else if ([[item commonKey] isEqual:@"albumName"]){
+                _album = [item stringValue];
+            } else if ([[item commonKey]isEqual:@"artwork"]){
+                if ([[item value] isKindOfClass:[NSDictionary class]])
+                {
+                    NSDictionary *imageDic = (NSDictionary *)[item value];
+                    
+                    if ([imageDic objectForKey:@"data"] != nil)
+                    {
+                        NSData *imageData = [imageDic objectForKey:@"data"];
+                        _cover = [UIImage imageWithData:imageData];
+                    }
+                }
+            }
+        }
     }
     return self;
 }
