@@ -10,6 +10,7 @@
 #import "SongList.h"
 #import "SongListCell.h"
 #import "PlayerViewController.h"
+#import "bass.h"
 
 @interface SongListTableViewController ()
 
@@ -32,6 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //First of all: load BASS
+    BASS_Init(-1, 44100, 0, 0, 0);
+    NSLog(@"BASS Init: %d",BASS_ErrorGetCode());
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

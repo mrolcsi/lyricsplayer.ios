@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9515999E1912745700E0670E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9515999D1912745600E0670E /* AudioToolbox.framework */; };
+		951599A01912746700E0670E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9515999F1912746700E0670E /* SystemConfiguration.framework */; };
+		951599A21912747100E0670E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951599A11912747100E0670E /* CFNetwork.framework */; };
+		951599A41912747D00E0670E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951599A31912747D00E0670E /* Accelerate.framework */; };
+		951599A6191274AA00E0670E /* libbass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 951599A5191274AA00E0670E /* libbass.a */; };
+		951599AB1912813F00E0670E /* Coldplay - Viva la Vida.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 951599AA1912813F00E0670E /* Coldplay - Viva la Vida.mp3 */; };
 		95211D8518D64DD800C41A5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95211D8418D64DD800C41A5F /* Foundation.framework */; };
 		95211D8718D64DD800C41A5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95211D8618D64DD800C41A5F /* CoreGraphics.framework */; };
 		95211D8918D64DD800C41A5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95211D8818D64DD800C41A5F /* UIKit.framework */; };
@@ -49,6 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9515999D1912745600E0670E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9515999F1912746700E0670E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		951599A11912747100E0670E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		951599A31912747D00E0670E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		951599A5191274AA00E0670E /* libbass.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbass.a; path = "Lyrics Player/bass24-ios/libbass.a"; sourceTree = "<group>"; };
+		951599A8191276FB00E0670E /* bass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bass.h; path = "bass24-ios/bass.h"; sourceTree = "<group>"; };
+		951599AA1912813F00E0670E /* Coldplay - Viva la Vida.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Coldplay - Viva la Vida.mp3"; sourceTree = "<group>"; };
 		95211D8118D64DD800C41A5F /* Lyrics Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lyrics Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95211D8418D64DD800C41A5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		95211D8618D64DD800C41A5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +109,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951599A6191274AA00E0670E /* libbass.a in Frameworks */,
+				951599A41912747D00E0670E /* Accelerate.framework in Frameworks */,
+				951599A21912747100E0670E /* CFNetwork.framework in Frameworks */,
+				951599A01912746700E0670E /* SystemConfiguration.framework in Frameworks */,
+				9515999E1912745700E0670E /* AudioToolbox.framework in Frameworks */,
 				95211DBA18D64E3500C41A5F /* MediaPlayer.framework in Frameworks */,
 				95211D8718D64DD800C41A5F /* CoreGraphics.framework in Frameworks */,
 				95211D8918D64DD800C41A5F /* UIKit.framework in Frameworks */,
@@ -116,6 +134,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		951599A7191276E500E0670E /* BASS */ = {
+			isa = PBXGroup;
+			children = (
+				951599A8191276FB00E0670E /* bass.h */,
+			);
+			name = BASS;
+			sourceTree = "<group>";
+		};
+		951599A91912805300E0670E /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				951599AA1912813F00E0670E /* Coldplay - Viva la Vida.mp3 */,
+			);
+			name = Songs;
+			sourceTree = "<group>";
+		};
 		95211D7818D64DD600C41A5F = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +172,11 @@
 		95211D8318D64DD800C41A5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				951599A5191274AA00E0670E /* libbass.a */,
+				951599A31912747D00E0670E /* Accelerate.framework */,
+				951599A11912747100E0670E /* CFNetwork.framework */,
+				9515999F1912746700E0670E /* SystemConfiguration.framework */,
+				9515999D1912745600E0670E /* AudioToolbox.framework */,
 				95211DB918D64E3500C41A5F /* MediaPlayer.framework */,
 				95211D8418D64DD800C41A5F /* Foundation.framework */,
 				95211D8618D64DD800C41A5F /* CoreGraphics.framework */,
@@ -150,6 +189,8 @@
 		95211D8A18D64DD800C41A5F /* Lyrics Player */ = {
 			isa = PBXGroup;
 			children = (
+				951599A91912805300E0670E /* Songs */,
+				951599A7191276E500E0670E /* BASS */,
 				9524E07718F317580005F308 /* Images */,
 				9524E06618F30CC00005F308 /* Models */,
 				9524E05618F3024B0005F308 /* Controllers */,
@@ -323,6 +364,7 @@
 				952F2E3919044F3F00442B37 /* play.png in Resources */,
 				952F2E3819044F3F00442B37 /* pause.png in Resources */,
 				952F2E3E190457CA00442B37 /* Images.xcassets in Resources */,
+				951599AB1912813F00E0670E /* Coldplay - Viva la Vida.mp3 in Resources */,
 				95211D8F18D64DD800C41A5F /* InfoPlist.strings in Resources */,
 				9524E07B18F317630005F308 /* macklemore-thriftshop.jpg in Resources */,
 				952F2E3A19044F3F00442B37 /* prev.png in Resources */,
@@ -483,6 +525,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Lyrics Player/Lyrics Player-Prefix.pch";
 				INFOPLIST_FILE = "Lyrics Player/Lyrics Player-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lyrics",
+					"Player/bass24-ios",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -496,6 +543,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Lyrics Player/Lyrics Player-Prefix.pch";
 				INFOPLIST_FILE = "Lyrics Player/Lyrics Player-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lyrics",
+					"Player/bass24-ios",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

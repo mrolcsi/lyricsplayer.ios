@@ -15,28 +15,35 @@
 -(id)initWithTestData{
     self = [super init];
     if (self){
-        Song *vivalavida = [[Song alloc]initWithArtist:@"Coldplay"
-                                                 Title:@"Viva la Vida"
-                                                 Album:@"Viva la Vida or Death And All His Friends"
-                                            CoverImage:[UIImage imageNamed:@"coldplay-vivalavida.jpg"]
-                                DurationInMilliseconds:244218];
-        Song *thriftshop = [[Song alloc]initWithArtist:@"Macklemore & Ryan Lewis"
-                                                 Title:@"Thrift Shop"
-                                                 Album:@"The Heist"
-                                            CoverImage:[UIImage imageNamed:@"macklemore-thriftshop.jpg"]
-                                DurationInMilliseconds:234448];
-        Song *clarity = [[Song alloc]initWithArtist:@"Zedd feat. Foxes"
-                                              Title:@"Clarity (Album Version)"
-                                              Album:@"Clarity"
-                                         CoverImage:[UIImage imageNamed:@"zedd-clarity.jpg"]
-                             DurationInMilliseconds:271426];
-        Song *digitalLove = [[Song alloc]initWithArtist:@"Daft Punk"
-                                                  Title:@"Digital Love"
-                                                  Album:@"Discovery"
-                                             CoverImage:[UIImage imageNamed:@"daftpunk-discovery.jpg"]
-                                  DurationInMilliseconds:300277];
+//        Song *vivalavida = [[Song alloc]initWithArtist:@"Coldplay"
+//                                                 Title:@"Viva la Vida"
+//                                                 Album:@"Viva la Vida or Death And All His Friends"
+//                                            CoverImage:[UIImage imageNamed:@"coldplay-vivalavida.jpg"]
+//                                DurationInMilliseconds:244218];
+//        Song *thriftshop = [[Song alloc]initWithArtist:@"Macklemore & Ryan Lewis"
+//                                                 Title:@"Thrift Shop"
+//                                                 Album:@"The Heist"
+//                                            CoverImage:[UIImage imageNamed:@"macklemore-thriftshop.jpg"]
+//                                DurationInMilliseconds:234448];
+//        Song *clarity = [[Song alloc]initWithArtist:@"Zedd feat. Foxes"
+//                                              Title:@"Clarity (Album Version)"
+//                                              Album:@"Clarity"
+//                                         CoverImage:[UIImage imageNamed:@"zedd-clarity.jpg"]
+//                             DurationInMilliseconds:271426];
+//        Song *digitalLove = [[Song alloc]initWithArtist:@"Daft Punk"
+//                                                  Title:@"Digital Love"
+//                                                  Album:@"Discovery"
+//                                             CoverImage:[UIImage imageNamed:@"daftpunk-discovery.jpg"]
+//                                  DurationInMilliseconds:300277];
         
-        _songs = [[NSMutableArray alloc] initWithObjects:vivalavida,thriftshop,clarity,digitalLove, nil];
+//        _songs = [[NSMutableArray alloc] initWithObjects:vivalavida, thriftshop, clarity, digitalLove, nil];
+        //init with filename
+
+        Song *vivalavida=[[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Coldplay - Viva la Vida.mp3" ofType:nil]];
+        
+        _songs =[[NSMutableArray alloc]initWithObjects:vivalavida, nil];
+        
+
     }
     return self;
 }
@@ -75,7 +82,7 @@
     cell.lblArtist.text = song.artist;
     cell.lblTitle.text = song.title;
     cell.imgCover.image = song.cover;
-    cell.lblDuration.text = [song getDurationString];
+    cell.lblDuration.text = [song getTotalTimeString];
     
     return cell;
 }

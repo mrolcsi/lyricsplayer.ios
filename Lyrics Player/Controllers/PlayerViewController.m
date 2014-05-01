@@ -8,6 +8,7 @@
 
 #import "PlayerViewController.h"
 #import "Song.h"
+#import "bass.h"
 
 @interface PlayerViewController ()
 
@@ -42,7 +43,7 @@
     self.lblTitle.text = _currentSong.title;
     self.lblArtistAlbum.text = [NSString stringWithFormat:@"%@ - %@",_currentSong.artist, _currentSong.album];
     self.imgCover.image = _currentSong.cover;
-    self.lblRemainingTime.text = [NSString stringWithFormat:@"-%@",[_currentSong getDurationString]];
+    self.lblRemainingTime.text = [NSString stringWithFormat:@"-%@",[_currentSong getRemainingTimeString]];
     
     __weak PlayerViewController *this = self;
     [self.currentSong fetchLyricsOnSuccess:^(NSString *lyrics) {
@@ -57,6 +58,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Buttons
+
+- (IBAction)btnPlayPause_Pressed:(id)sender {
+}
+
+- (IBAction)sbProgress_Changed:(id)sender {
 }
 
 /*

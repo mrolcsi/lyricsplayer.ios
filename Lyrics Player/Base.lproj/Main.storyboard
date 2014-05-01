@@ -111,6 +111,9 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bb1-e9-gjd">
                                 <rect key="frame" x="6" y="522" width="306" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sbProgress_Changed:" destination="eck-iA-Nw2" eventType="valueChanged" id="fYa-9g-gXC"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IS-u8-uFv">
                                 <rect key="frame" x="8" y="494" width="40" height="20"/>
@@ -142,6 +145,9 @@
                                 <state key="normal" title="PlayPause" image="play.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnPlayPause_Pressed:" destination="eck-iA-Nw2" eventType="touchUpInside" id="FPe-pi-65b"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9r9-8N-LIc">
                                 <rect key="frame" x="71" y="466" width="48" height="48"/>
