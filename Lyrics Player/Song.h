@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Lyrics.h"
+#import "bass.h"
+
+typedef void(^OnLyricReachedBlock)(NSString*, NSString*, NSString*);
 
 @interface Song : NSObject
 
 @property (strong, nonatomic) NSString *filename;
 @property (strong, nonatomic) NSURL *fileURL;
+
+@property SYNCPROC *onSongEnd;
+@property (nonatomic, copy) OnLyricReachedBlock onLyricReached;
 
 @property (strong, nonatomic) NSString *artist;
 @property (strong, nonatomic) NSString *title;
@@ -22,13 +28,12 @@
 @property (strong, nonatomic) NSString* rawLyrics;
 @property (strong, nonatomic) Lyrics* lyrics;
 
--(id)initWithArtist:(NSString *)artist Title:(NSString *)title Album:(NSString *)album CoverImage:(UIImage *)cover DurationInMilliseconds:(NSInteger)duration;
--(id)initWithFile:(NSString *)file;
--(id)initWithURL:(NSURL*)fileURL;
+-(id)initWithFile:(NSString *)filename;
 
 -(void)fetchLyricsOnSuccess:(void(^)(NSString* lyrics))successHandler OnFailure:(void(^)(NSError* error))failureHandler;
+-(void)setOnSongEnd:(SYNCPROC)songEndHandler;
 
--(int)getStatus;
+-(int) getStatus;
 -(double) getTotalTimeSeconds;
 -(double) getElapsedTimeSeconds;
 -(double) getRemainingTimeSeconds;

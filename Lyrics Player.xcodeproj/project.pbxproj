@@ -31,6 +31,7 @@
 		9524E07618F3149C0005F308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95211D9618D64DDA00C41A5F /* Main.storyboard */; };
 		952F2E3E190457CA00442B37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952F2E3D190457CA00442B37 /* Images.xcassets */; };
 		952F2E411904655200442B37 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F2E401904655200442B37 /* Lyrics.m */; };
+		957807B61912EFD90064ABA7 /* LyricLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 957807B51912EFD90064ABA7 /* LyricLine.m */; };
 		957965411912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */; };
 		9579654B1912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */; };
 		9579654C1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */; };
@@ -85,6 +86,8 @@
 		952F2E3D190457CA00442B37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		952F2E3F1904655200442B37 /* Lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lyrics.h; path = Models/Lyrics.h; sourceTree = "<group>"; };
 		952F2E401904655200442B37 /* Lyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lyrics.m; path = Models/Lyrics.m; sourceTree = "<group>"; };
+		957807B41912EFD90064ABA7 /* LyricLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LyricLine.h; path = Models/LyricLine.h; sourceTree = "<group>"; };
+		957807B51912EFD90064ABA7 /* LyricLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LyricLine.m; path = Models/LyricLine.m; sourceTree = "<group>"; };
 		957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Coldplay - Viva la Vida.mp3"; path = "Songs/Coldplay - Viva la Vida.mp3"; sourceTree = "<group>"; };
 		957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Macklemore & Ryan Lewis - Thrift Shop.mp3"; path = "Songs/Macklemore & Ryan Lewis - Thrift Shop.mp3"; sourceTree = "<group>"; };
 		9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Zedd feat. Foxes - Clarity.mp3"; path = "Songs/Zedd feat. Foxes - Clarity.mp3"; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				9524E06B18F30CFB0005F308 /* Song.m */,
 				952F2E3F1904655200442B37 /* Lyrics.h */,
 				952F2E401904655200442B37 /* Lyrics.m */,
+				957807B41912EFD90064ABA7 /* LyricLine.h */,
+				957807B51912EFD90064ABA7 /* LyricLine.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				9524E06C18F30CFB0005F308 /* Song.m in Sources */,
 				9524E06918F30CEE0005F308 /* SongList.m in Sources */,
 				9524E05C18F303FA0005F308 /* SongListCell.m in Sources */,
+				957807B61912EFD90064ABA7 /* LyricLine.m in Sources */,
 				95211D9B18D64DDA00C41A5F /* TestViewController.m in Sources */,
 				95211D9518D64DD800C41A5F /* AppDelegate.m in Sources */,
 				95A21CA719041B4600AB2191 /* PlayerViewController.m in Sources */,

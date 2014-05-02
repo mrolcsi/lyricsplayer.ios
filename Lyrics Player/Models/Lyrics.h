@@ -10,7 +10,10 @@
 
 @interface Lyrics : NSObject
 
+@property (strong, nonatomic) NSMutableArray *lyricLines;
+
 -(id)initFromLRC:(NSString*) lrc;
--(id)initFromHTML:(NSString*) html;
+
++(double)secondsFromTag:(NSString*)tag;
 
 @end

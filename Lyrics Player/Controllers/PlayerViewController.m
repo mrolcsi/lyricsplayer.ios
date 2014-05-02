@@ -10,6 +10,8 @@
 #import "Song.h"
 #import "bass.h"
 
+static id staticSelf = nil;
+
 @interface PlayerViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLyrics;
@@ -41,6 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    staticSelf = self;
     
     _lblTitle.text = _currentSong.title;
     _lblArtistAlbum.text = [NSString stringWithFormat:@"%@ - %@",_currentSong.artist, _currentSong.album];
@@ -49,12 +52,18 @@
     [_sldSeekBar setMaximumValue:[_currentSong getTotalTimeSeconds]];
     
     __weak PlayerViewController *this = self;
-    [self.currentSong fetchLyricsOnSuccess:^(NSString *lyrics) {
+    [_currentSong fetchLyricsOnSuccess:^(NSString *lyrics) {
         this.lblLyrics.text=lyrics;
     } OnFailure:^(NSError *error) {
         this.lblLyrics.text=@"No lyrics found.";
     }];
     
+    _currentSong.onSongEnd = onSongEndCallback;
+    _currentSong.onLyricReached = ^(NSString* previousLine, NSString* currentLine, NSString* nextLine){
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            this.lblLyrics.text = [NSString stringWithFormat:@"%@\r%@\r%@", previousLine, currentLine,nextLine];
+        }];
+    };
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +76,23 @@
     _lblElapsedTime.text = [_currentSong getElapsedTimeString];
     _lblRemainingTime.text = [_currentSong getRemainingTimeString];
     [_sldSeekBar setValue:[_currentSong getElapsedTimeSeconds]];
+}
+
+void onSongEndCallback(HSYNC handle, DWORD channel, DWORD data, void *user){
+    [staticSelf onSongEndImplementation];
+}
+
+-(void)onSongEndImplementation{
+    NSLog(@"OnSongEnd");
+    [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+        //run on ui thread
+        [_progressTimer invalidate];
+        
+        [_btnPlayPause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        [_sldSeekBar setValue:0];
+        _lblElapsedTime.text=@"00:00";
+        _lblRemainingTime.text=[_currentSong getTotalTimeString];
+    }];
 }
 
 #pragma mark - Buttons
@@ -95,14 +121,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

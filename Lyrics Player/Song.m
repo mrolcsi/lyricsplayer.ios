@@ -7,8 +7,11 @@
 //
 
 #import "Song.h"
+#import "LyricLine.h"
 #import "bass.h"
 #import <AVFoundation/AVFoundation.h>
+
+static Song* staticSelf = nil;
 
 @interface Song ()
 
@@ -18,26 +21,15 @@
 
 @implementation Song
 
--(id)initWithArtist:(NSString *)artist Title:(NSString *)title Album:(NSString *)album CoverImage:(UIImage *)cover DurationInMilliseconds:(NSInteger)duration{
-    
-    if (self = [super init]){
-        _artist = artist;
-        _title = title;
-        _album = album;
-        _cover = cover;
-        _duration = duration;
-    }
-    return self;
-}
-
--(id)initWithFile:(NSString *)file{
+-(id)initWithFile:(NSString *)filename{
     if(self = [super init]){
-        _filename = file;
-        self.stream = BASS_StreamCreateFile(false, [file UTF8String], 0, 0, BASS_STREAM_PRESCAN|BASS_STREAM_AUTOFREE);
-        NSLog(@"BASS_StreamCreateFile: %@, %d",file,BASS_ErrorGetCode());
+        
+        _filename = filename;
+        self.stream = BASS_StreamCreateFile(false, [filename UTF8String], 0, 0, BASS_STREAM_PRESCAN|BASS_STREAM_AUTOFREE);
+        NSLog(@"BASS_StreamCreateFile: %@, %d", filename, BASS_ErrorGetCode());
         
         //extract metadata
-        NSURL *url = [NSURL fileURLWithPath:file];
+        NSURL *url = [NSURL fileURLWithPath:filename];
         AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
         NSArray *metadata = [asset commonMetadata];
         for (AVMetadataItem *item in metadata){
@@ -61,32 +53,19 @@
             }
         }
     }
+    staticSelf = self;
     return self;
-}
-
--(id)initWithURL:(NSURL *)fileURL{
-    if(self = [super init]){
-        _fileURL = fileURL;
-        self.stream = BASS_StreamCreateFile(false, [fileURL fileSystemRepresentation], 0, 0, BASS_STREAM_PRESCAN|BASS_STREAM_AUTOFREE);
-        NSLog(@"BASS_StreamCreateFile: %@, %d",fileURL,BASS_ErrorGetCode());
-    }
-    return self;
-}
-
--(NSString *)getDurationString{
-    long mins = _duration / 60000;
-    int seconds = (_duration /10000) % 60;
-    
-    return [NSString stringWithFormat:@"%ld:%d", mins, seconds];
 }
 
 -(void)fetchLyricsOnSuccess:(void(^)(NSString* lyrics))successHandler OnFailure:(void(^)(NSError* error))failureHandler{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     //prepare URL
-    NSString *urlString = [NSString stringWithFormat:@"http://mrolcsi.orgfree.com/lrc/get.php?artist=%@&title=%@", _artist,_title];
-    NSString *escapedUrlString = [urlString stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-    NSURL *url = [NSURL URLWithString:escapedUrlString];
+    NSString *encodedArtist = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)_artist, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
+    NSString *encodedTitle = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)_title, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://mrolcsi.orgfree.com/lrc/get.php?artist=%@&title=%@", encodedArtist, encodedTitle];
+    NSURL *url = [NSURL URLWithString:urlString];
     
     //prepare HTTP Request
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1000];
@@ -101,9 +80,9 @@
                                
                                if (statuscode == 200) {
                                    NSString *responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                                   //TODO: parse lyrics n stuff
                                    
                                    this.lyrics = [[Lyrics alloc] initFromLRC:responseString];
+                                   
                                    successHandler(responseString);
                                } else if (statuscode == 404) {
                                    failureHandler(nil);
@@ -112,6 +91,27 @@
                                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                
                            }];
+}
+
+void lyricReached(HSYNC handle, DWORD channel, DWORD data, void *user){
+    NSArray *lines = (__bridge NSArray*)user;
+    staticSelf.onLyricReached([lines objectAtIndex:0], [lines objectAtIndex:1], [lines objectAtIndex:2]);
+}
+
+-(void)buildCallbacks{
+    //this is where the magic happens
+    if (_lyrics) {
+        for (int i = 0; i<[_lyrics.lyricLines count]; i++) {
+            NSString *previousLine = (i>0) ? ((LyricLine*)[_lyrics.lyricLines objectAtIndex:i-1]).lyric : @"";
+            NSString *currentLine = ((LyricLine*)[_lyrics.lyricLines objectAtIndex:i]).lyric;
+            NSString *nextLine = (i+1<[_lyrics.lyricLines count])?((LyricLine*)[_lyrics.lyricLines objectAtIndex:i+1]).lyric : @"";
+            
+            NSArray* user = [[NSArray alloc]initWithObjects:previousLine,currentLine,nextLine, nil];
+            
+            unsigned long long bytes = BASS_ChannelSeconds2Bytes(_stream, ((LyricLine*)[_lyrics.lyricLines objectAtIndex:i]).time);
+            BASS_ChannelSetSync(_stream, BASS_SYNC_POS, bytes, lyricReached,(__bridge_retained void*)user);
+        }
+    }
 }
 
 #pragma mark - BASS Helper
@@ -178,8 +178,8 @@
 -(void)play{
     [self stop];
     _stream = BASS_StreamCreateFile(false, [_filename UTF8String], 0, 0, BASS_STREAM_AUTOFREE|BASS_STREAM_PRESCAN);
-    //BASS_ChannelSetSync(...onSongEnd...)
-    //buildLyricsCallbacks
+    BASS_ChannelSetSync(_stream, BASS_SYNC_END, 0, _onSongEnd, NULL);
+    [self buildCallbacks];
     
     BASS_ChannelPlay(_stream, true);
 }
