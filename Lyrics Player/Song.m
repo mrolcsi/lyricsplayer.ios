@@ -94,21 +94,6 @@ static Song* staticSelf = nil;
                            }];
 }
 
-void CALLBACK lyricReached(HSYNC handle, DWORD channel, DWORD data, void *user){
-    NSArray *lines = (__bridge_transfer NSArray*)user;
-    
-    NSLog(@"Line %d reached.", staticSelf.currentLine);
-    
-//    __block NSString *previousLine = [lines objectAtIndex:0];
-//    __block NSString *currentLine = [lines objectAtIndex:1];
-//    __block NSString *nextLine =  [lines objectAtIndex:2];
-    
-    //EXC_BAD_ACCESS...
-    //staticSelf.onLyricReached(lines);
-    
-    staticSelf.currentLine++;
-}
-
 -(void)buildCallbacks{
     //this is where the magic happens
     if (_lyrics) {

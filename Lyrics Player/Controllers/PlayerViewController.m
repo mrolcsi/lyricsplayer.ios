@@ -110,8 +110,8 @@ void CALLBACK onSongEndCallback(HSYNC handle, DWORD channel, DWORD data, void *u
         
         [_btnPlayPause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
         [_sldSeekBar setValue:0];
-        _lblElapsedTime.text=@"00:00";
-        _lblRemainingTime.text=[_currentSong getTotalTimeString];
+        _lblElapsedTime.text = @"00:00";
+        _lblRemainingTime.text = [_currentSong getTotalTimeString];
     }];
 }
 

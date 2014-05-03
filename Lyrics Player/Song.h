@@ -10,8 +10,6 @@
 #import "Lyrics.h"
 #import "bass.h"
 
-typedef void(^OnLyricReachedBlock)(NSArray*);
-
 @interface Song : NSObject
 
 @property (strong, nonatomic) NSString *filename;
