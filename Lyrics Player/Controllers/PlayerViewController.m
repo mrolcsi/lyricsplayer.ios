@@ -15,7 +15,9 @@ static id staticSelf = nil;
 
 @interface PlayerViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *lblLyrics;
+@property (weak, nonatomic) IBOutlet UILabel *lblPreviousLine;
+@property (weak, nonatomic) IBOutlet UILabel *lblCurrentLine;
+@property (weak, nonatomic) IBOutlet UILabel *lblNextLine;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCover;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblArtistAlbum;
@@ -54,7 +56,7 @@ static id staticSelf = nil;
     
     __weak PlayerViewController *this = self;
     
-    _lblLyrics.text = @"Downloading lyrics...";
+    _lblCurrentLine.text = @"Downloading lyrics...";
     
     //    _currentSong.onLyricReached = ^(NSArray* lines){
     //
@@ -74,9 +76,9 @@ static id staticSelf = nil;
     _currentSong.onLyricReached = onLyricReachedCallback;
     
     [_currentSong fetchLyricsOnSuccess:^(NSString *lyrics) {
-        this.lblLyrics.text = @"Lyrics downloaded!";
+        this.lblCurrentLine.text = @"Lyrics downloaded!";
     } OnFailure:^(NSError *error) {
-        this.lblLyrics.text = @"No lyrics found.";
+        this.lblCurrentLine.text = @"No lyrics found.";
     }];
     
     _currentSong.onSongEnd = onSongEndCallback;
@@ -119,6 +121,8 @@ void CALLBACK onLyricReachedCallback(HSYNC handle, DWORD channel, DWORD data, vo
 }
 
 -(void)onLyricReachedImplementation:(NSArray*)lines{
+    if ([lines count] != 3) return;
+    
     __block NSString *previousLine = [lines objectAtIndex:0];
     __block NSString *currentLine = [lines objectAtIndex:1];
     __block NSString *nextLine =  [lines objectAtIndex:2];
@@ -126,7 +130,9 @@ void CALLBACK onLyricReachedCallback(HSYNC handle, DWORD channel, DWORD data, vo
     __weak PlayerViewController *this = self;
     
     [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-        this.lblLyrics.text = [NSString stringWithFormat:@"%@\r%@\r%@", previousLine, currentLine, nextLine];
+        this.lblPreviousLine.text = previousLine;
+        this.lblCurrentLine.text = currentLine;
+        this.lblNextLine.text = nextLine;
     }];
 }
 

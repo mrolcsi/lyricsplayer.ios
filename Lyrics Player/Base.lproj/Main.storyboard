@@ -99,8 +99,26 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-21-ijk">
-                                <rect key="frame" x="10" y="74" width="300" height="300"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PreviousLine" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="sle-Fe-xe5">
+                                <rect key="frame" x="10" y="188" width="300" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CurrentLine" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-21-ijk">
+                                <rect key="frame" x="10" y="212" width="300" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NextLine" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="yR7-8j-tld">
+                                <rect key="frame" x="10" y="236" width="300" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -173,8 +191,10 @@
                         <outlet property="btnPrev" destination="9r9-8N-LIc" id="kDg-xl-Onh"/>
                         <outlet property="imgCover" destination="OcW-xo-QzN" id="vvJ-Zq-ZxK"/>
                         <outlet property="lblArtistAlbum" destination="GnZ-6x-MRJ" id="zAP-iQ-hqG"/>
+                        <outlet property="lblCurrentLine" destination="HgG-21-ijk" id="WBy-2m-AVI"/>
                         <outlet property="lblElapsedTime" destination="0IS-u8-uFv" id="zkx-7q-Jxf"/>
-                        <outlet property="lblLyrics" destination="HgG-21-ijk" id="P3t-Fk-HG3"/>
+                        <outlet property="lblNextLine" destination="yR7-8j-tld" id="ZiW-iJ-pau"/>
+                        <outlet property="lblPreviousLine" destination="sle-Fe-xe5" id="SOx-Tk-WBI"/>
                         <outlet property="lblRemainingTime" destination="PfC-xb-AeY" id="9dt-O2-Tg8"/>
                         <outlet property="lblTitle" destination="7h7-zP-g3o" id="2RT-UC-0IG"/>
                         <outlet property="sldSeekBar" destination="Bb1-e9-gjd" id="ftg-C6-td6"/>
