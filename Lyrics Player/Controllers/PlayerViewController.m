@@ -9,6 +9,7 @@
 #import "PlayerViewController.h"
 #import "Song.h"
 #import "bass.h"
+#import "LyricLine.h"
 
 static id staticSelf = nil;
 
@@ -52,18 +53,33 @@ static id staticSelf = nil;
     [_sldSeekBar setMaximumValue:[_currentSong getTotalTimeSeconds]];
     
     __weak PlayerViewController *this = self;
+    
+    _lblLyrics.text = @"Downloading lyrics...";
+    
+    //    _currentSong.onLyricReached = ^(NSArray* lines){
+    //
+    //        //        NSString *previousLine = (currentLineIndex>0) ? ((LyricLine*)[this.currentSong.lyrics.lyricLines objectAtIndex:currentLineIndex-1]).lyric : @"";
+    //        //        NSString *currentLine = ((LyricLine*)[this.currentSong.lyrics.lyricLines objectAtIndex:currentLineIndex]).lyric;
+    //        //        NSString *nextLine = (currentLineIndex+1<[this.currentSong.lyrics.lyricLines count])?((LyricLine*)[this.currentSong.lyrics.lyricLines objectAtIndex:currentLineIndex+1]).lyric : @"";
+    //
+    //        __block NSString *previousLine = [lines objectAtIndex:0];
+    //        __block NSString *currentLine = [lines objectAtIndex:1];
+    //        __block NSString *nextLine =  [lines objectAtIndex:2];
+    //
+    //        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+    //            this.lblLyrics.text = [NSString stringWithFormat:@"%@\r%@\r%@", previousLine, currentLine, nextLine];
+    //        }];
+    //    };
+    
+    _currentSong.onLyricReached = onLyricReachedCallback;
+    
     [_currentSong fetchLyricsOnSuccess:^(NSString *lyrics) {
-        this.lblLyrics.text=lyrics;
+        this.lblLyrics.text = @"Lyrics downloaded!";
     } OnFailure:^(NSError *error) {
-        this.lblLyrics.text=@"No lyrics found.";
+        this.lblLyrics.text = @"No lyrics found.";
     }];
     
     _currentSong.onSongEnd = onSongEndCallback;
-    _currentSong.onLyricReached = ^(NSString* previousLine, NSString* currentLine, NSString* nextLine){
-        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-            this.lblLyrics.text = [NSString stringWithFormat:@"%@\r%@\r%@", previousLine, currentLine,nextLine];
-        }];
-    };
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +94,7 @@ static id staticSelf = nil;
     [_sldSeekBar setValue:[_currentSong getElapsedTimeSeconds]];
 }
 
-void onSongEndCallback(HSYNC handle, DWORD channel, DWORD data, void *user){
+void CALLBACK onSongEndCallback(HSYNC handle, DWORD channel, DWORD data, void *user){
     [staticSelf onSongEndImplementation];
 }
 
@@ -86,12 +102,31 @@ void onSongEndCallback(HSYNC handle, DWORD channel, DWORD data, void *user){
     NSLog(@"OnSongEnd");
     [[NSOperationQueue mainQueue]addOperationWithBlock:^{
         //run on ui thread
+        [_currentSong stop];
+        
         [_progressTimer invalidate];
         
         [_btnPlayPause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
         [_sldSeekBar setValue:0];
         _lblElapsedTime.text=@"00:00";
         _lblRemainingTime.text=[_currentSong getTotalTimeString];
+    }];
+}
+
+void CALLBACK onLyricReachedCallback(HSYNC handle, DWORD channel, DWORD data, void *user){
+    NSArray* lines = (__bridge_transfer NSArray*)user;
+    [staticSelf onLyricReachedImplementation:lines];
+}
+
+-(void)onLyricReachedImplementation:(NSArray*)lines{
+    __block NSString *previousLine = [lines objectAtIndex:0];
+    __block NSString *currentLine = [lines objectAtIndex:1];
+    __block NSString *nextLine =  [lines objectAtIndex:2];
+    
+    __weak PlayerViewController *this = self;
+    
+    [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+        this.lblLyrics.text = [NSString stringWithFormat:@"%@\r%@\r%@", previousLine, currentLine, nextLine];
     }];
 }
 

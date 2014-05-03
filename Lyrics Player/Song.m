@@ -16,6 +16,7 @@ static Song* staticSelf = nil;
 @interface Song ()
 
 @property HSTREAM stream;
+@property int currentLine;
 
 @end
 
@@ -93,9 +94,19 @@ static Song* staticSelf = nil;
                            }];
 }
 
-void lyricReached(HSYNC handle, DWORD channel, DWORD data, void *user){
-    NSArray *lines = (__bridge NSArray*)user;
-    staticSelf.onLyricReached([lines objectAtIndex:0], [lines objectAtIndex:1], [lines objectAtIndex:2]);
+void CALLBACK lyricReached(HSYNC handle, DWORD channel, DWORD data, void *user){
+    NSArray *lines = (__bridge_transfer NSArray*)user;
+    
+    NSLog(@"Line %d reached.", staticSelf.currentLine);
+    
+//    __block NSString *previousLine = [lines objectAtIndex:0];
+//    __block NSString *currentLine = [lines objectAtIndex:1];
+//    __block NSString *nextLine =  [lines objectAtIndex:2];
+    
+    //EXC_BAD_ACCESS...
+    //staticSelf.onLyricReached(lines);
+    
+    staticSelf.currentLine++;
 }
 
 -(void)buildCallbacks{
@@ -106,10 +117,10 @@ void lyricReached(HSYNC handle, DWORD channel, DWORD data, void *user){
             NSString *currentLine = ((LyricLine*)[_lyrics.lyricLines objectAtIndex:i]).lyric;
             NSString *nextLine = (i+1<[_lyrics.lyricLines count])?((LyricLine*)[_lyrics.lyricLines objectAtIndex:i+1]).lyric : @"";
             
-            NSArray* user = [[NSArray alloc]initWithObjects:previousLine,currentLine,nextLine, nil];
+            NSArray* user = [[NSArray alloc]initWithObjects:previousLine, currentLine, nextLine, nil];
             
             unsigned long long bytes = BASS_ChannelSeconds2Bytes(_stream, ((LyricLine*)[_lyrics.lyricLines objectAtIndex:i]).time);
-            BASS_ChannelSetSync(_stream, BASS_SYNC_POS, bytes, lyricReached,(__bridge_retained void*)user);
+            BASS_ChannelSetSync(_stream, BASS_SYNC_POS, bytes, _onLyricReached, (__bridge_retained void *)(user));
         }
     }
 }

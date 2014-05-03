@@ -10,7 +10,7 @@
 #import "Lyrics.h"
 #import "bass.h"
 
-typedef void(^OnLyricReachedBlock)(NSString*, NSString*, NSString*);
+typedef void(^OnLyricReachedBlock)(NSArray*);
 
 @interface Song : NSObject
 
@@ -18,7 +18,8 @@ typedef void(^OnLyricReachedBlock)(NSString*, NSString*, NSString*);
 @property (strong, nonatomic) NSURL *fileURL;
 
 @property SYNCPROC *onSongEnd;
-@property (nonatomic, copy) OnLyricReachedBlock onLyricReached;
+//@property (nonatomic, copy) OnLyricReachedBlock onLyricReached;
+@property SYNCPROC *onLyricReached;
 
 @property (strong, nonatomic) NSString *artist;
 @property (strong, nonatomic) NSString *title;
