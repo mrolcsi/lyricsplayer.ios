@@ -51,7 +51,7 @@ static id staticSelf = nil;
     _lblTitle.text = _currentSong.title;
     _lblArtistAlbum.text = [NSString stringWithFormat:@"%@ - %@",_currentSong.artist, _currentSong.album];
     _imgCover.image = _currentSong.cover;
-    _lblRemainingTime.text = [_currentSong getTotalTimeString];
+    _lblRemainingTime.text = [NSString stringWithFormat:@"-%@", [_currentSong getTotalTimeString]];
     [_sldSeekBar setMaximumValue:[_currentSong getTotalTimeSeconds]];
     
     __weak PlayerViewController *this = self;
@@ -92,7 +92,7 @@ static id staticSelf = nil;
 
 -(void)onProgressUpdate{
     _lblElapsedTime.text = [_currentSong getElapsedTimeString];
-    _lblRemainingTime.text = [_currentSong getRemainingTimeString];
+    _lblRemainingTime.text = [NSString stringWithFormat:@"-%@", [_currentSong getRemainingTimeString]];
     [_sldSeekBar setValue:[_currentSong getElapsedTimeSeconds]];
 }
 
@@ -104,15 +104,16 @@ void CALLBACK onSongEndCallback(HSYNC handle, DWORD channel, DWORD data, void *u
     NSLog(@"OnSongEnd");
     [[NSOperationQueue mainQueue]addOperationWithBlock:^{
         //run on ui thread
-        [_currentSong stop];
         
         [_progressTimer invalidate];
         
         [_btnPlayPause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
         [_sldSeekBar setValue:0];
         _lblElapsedTime.text = @"00:00";
-        _lblRemainingTime.text = [_currentSong getTotalTimeString];
+        _lblRemainingTime.text = [NSString stringWithFormat:@"-%@", [_currentSong getTotalTimeString]];
+        
     }];
+    [_currentSong stop];
 }
 
 void CALLBACK onLyricReachedCallback(HSYNC handle, DWORD channel, DWORD data, void *user){
@@ -143,15 +144,15 @@ void CALLBACK onLyricReachedCallback(HSYNC handle, DWORD channel, DWORD data, vo
         [_progressTimer invalidate];
         [_currentSong pause];
         
-        [_btnPlayPause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        [_btnPlayPause setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     } else if ([_currentSong getStatus] == BASS_ACTIVE_STOPPED) {
-        _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(onProgressUpdate) userInfo:nil repeats:YES];
+        _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onProgressUpdate) userInfo:nil repeats:YES];
         [_currentSong play];
-        [_btnPlayPause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+        [_btnPlayPause setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
     } else if ([_currentSong getStatus] == BASS_ACTIVE_PAUSED) {
-        _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(onProgressUpdate) userInfo:nil repeats:YES];
+        _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onProgressUpdate) userInfo:nil repeats:YES];
         [_currentSong resumeFromSeconds:_sldSeekBar.value];
-        [_btnPlayPause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+        [_btnPlayPause setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
     }
 }
 
