@@ -302,9 +302,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Matusinka Roland";
 				TargetAttributes = {
-					95211D8018D64DD700C41A5F = {
-						DevelopmentTeam = 5D94AFJG92;
-					};
 					95211DA118D64DDC00C41A5F = {
 						TestTargetID = 95211D8018D64DD700C41A5F;
 					};
