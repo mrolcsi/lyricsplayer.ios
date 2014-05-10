@@ -1,0 +1,34 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "icon.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "icon-3.png"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "1x",
+      "filename" : "icon-1.png"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "filename" : "icon-1-1.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "icon-2.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

@@ -33,10 +33,10 @@
 		952F2E411904655200442B37 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F2E401904655200442B37 /* Lyrics.m */; };
 		957807B61912EFD90064ABA7 /* LyricLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 957807B51912EFD90064ABA7 /* LyricLine.m */; };
 		957965411912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */; };
-		9579654B1912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */; };
-		9579654C1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */; };
-		9579654E1912BDF600C6DA4B /* Bastille - Pompeii.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9579654D1912BDF600C6DA4B /* Bastille - Pompeii.mp3 */; };
 		95A21CA719041B4600AB2191 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A21CA619041B4600AB2191 /* PlayerViewController.m */; };
+		95C21DE9191E312100541FDA /* Daft Punk - Digital Love.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95C21DE6191E312000541FDA /* Daft Punk - Digital Love.mp3 */; };
+		95C21DEA191E312100541FDA /* Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95C21DE7191E312000541FDA /* Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3 */; };
+		95C21DEB191E312100541FDA /* Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95C21DE8191E312100541FDA /* Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,11 +89,11 @@
 		957807B41912EFD90064ABA7 /* LyricLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LyricLine.h; path = Models/LyricLine.h; sourceTree = "<group>"; };
 		957807B51912EFD90064ABA7 /* LyricLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LyricLine.m; path = Models/LyricLine.m; sourceTree = "<group>"; };
 		957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Coldplay - Viva la Vida.mp3"; path = "Songs/Coldplay - Viva la Vida.mp3"; sourceTree = "<group>"; };
-		957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Macklemore & Ryan Lewis - Thrift Shop.mp3"; path = "Songs/Macklemore & Ryan Lewis - Thrift Shop.mp3"; sourceTree = "<group>"; };
-		9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Zedd feat. Foxes - Clarity.mp3"; path = "Songs/Zedd feat. Foxes - Clarity.mp3"; sourceTree = "<group>"; };
-		9579654D1912BDF600C6DA4B /* Bastille - Pompeii.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bastille - Pompeii.mp3"; path = "Songs/Bastille - Pompeii.mp3"; sourceTree = "<group>"; };
 		95A21CA519041B4600AB2191 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = Controllers/PlayerViewController.h; sourceTree = "<group>"; };
 		95A21CA619041B4600AB2191 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = Controllers/PlayerViewController.m; sourceTree = "<group>"; };
+		95C21DE6191E312000541FDA /* Daft Punk - Digital Love.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Daft Punk - Digital Love.mp3"; path = "Songs/Daft Punk - Digital Love.mp3"; sourceTree = "<group>"; };
+		95C21DE7191E312000541FDA /* Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3"; path = "Songs/Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3"; sourceTree = "<group>"; };
+		95C21DE8191E312100541FDA /* Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3"; path = "Songs/Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,10 +136,10 @@
 		951599A91912805300E0670E /* Songs */ = {
 			isa = PBXGroup;
 			children = (
-				9579654D1912BDF600C6DA4B /* Bastille - Pompeii.mp3 */,
-				957965491912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 */,
-				9579654A1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 */,
 				957965401912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 */,
+				95C21DE6191E312000541FDA /* Daft Punk - Digital Love.mp3 */,
+				95C21DE7191E312000541FDA /* Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3 */,
+				95C21DE8191E312100541FDA /* Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3 */,
 			);
 			name = Songs;
 			sourceTree = "<group>";
@@ -331,11 +331,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9579654B1912B7B100C6DA4B /* Macklemore & Ryan Lewis - Thrift Shop.mp3 in Resources */,
+				95C21DE9191E312100541FDA /* Daft Punk - Digital Love.mp3 in Resources */,
+				95C21DEA191E312100541FDA /* Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3 in Resources */,
 				9524E07618F3149C0005F308 /* Main.storyboard in Resources */,
+				95C21DEB191E312100541FDA /* Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3 in Resources */,
 				957965411912B53900C6DA4B /* Coldplay - Viva la Vida.mp3 in Resources */,
-				9579654E1912BDF600C6DA4B /* Bastille - Pompeii.mp3 in Resources */,
-				9579654C1912B7B100C6DA4B /* Zedd feat. Foxes - Clarity.mp3 in Resources */,
 				952F2E3E190457CA00442B37 /* Images.xcassets in Resources */,
 				95211D8F18D64DD800C41A5F /* InfoPlist.strings in Resources */,
 			);
@@ -488,8 +488,6 @@
 		95211DB418D64DDE00C41A5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Lyrics Player/Lyrics Player-Prefix.pch";
 				INFOPLIST_FILE = "Lyrics Player/Lyrics Player-Info.plist";
@@ -505,8 +503,6 @@
 		95211DB518D64DDE00C41A5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Lyrics Player/Lyrics Player-Prefix.pch";
 				INFOPLIST_FILE = "Lyrics Player/Lyrics Player-Info.plist";

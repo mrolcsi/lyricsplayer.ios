@@ -16,11 +16,11 @@
     self = [super init];
     if (self){
         Song *vivalavida = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Coldplay - Viva la Vida.mp3" ofType:nil]];
-        Song *thriftshop = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Macklemore & Ryan Lewis - Thrift Shop.mp3" ofType:nil]];
-        Song *clarity = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Zedd feat. Foxes - Clarity.mp3" ofType:nil]];
-        Song *pompeii = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Bastille - Pompeii.mp3" ofType:nil]];
+        Song *thriftshop = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Macklemore & Ryan Lewis - Thrift Shop (feat. Wanz).mp3" ofType:nil]];
+        Song *staythenight = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Zedd - Stay The Night (feat. Hayley Williams Of Paramore).mp3" ofType:nil]];
+        Song *digitallove = [[Song alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"Daft Punk - Digital Love.mp3" ofType:nil]];
         
-        _songs =[[NSMutableArray alloc]initWithObjects: vivalavida, thriftshop, clarity, pompeii, nil];
+        _songs =[[NSMutableArray alloc]initWithObjects: vivalavida, digitallove, thriftshop, staythenight, nil];
         
     }
     return self;
